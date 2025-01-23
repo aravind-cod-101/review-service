@@ -39,7 +39,7 @@ def generate_sentiment():
     sentiments = ["Joy", "Anger", "Trust", "Disgust", "Anticipation", None]  # Nullable field
     return random.choice(sentiments)
 
-def generateReviewHistoryData(num_rows,categories):
+def generate_review_history_data(num_rows,categories):
     review_history_data = []
     start_date = datetime(2024, 12, 1)
     end_date = datetime(2025, 1, 23)
@@ -60,7 +60,7 @@ def generateReviewHistoryData(num_rows,categories):
         })
     return review_history_data
 
-def generateCategoricalData(categories):
+def generate_categorical_data(categories):
     categorical_data = []
     for i in range(len(categories)):
         categorical_data.append({
@@ -72,12 +72,11 @@ def generateCategoricalData(categories):
 
 
 
-
 if __name__ == "__main__":
     dataset_size = 10000
     review_category_id = [1, 2, 3, 4, 5]
-    review_history_data = generateReviewHistoryData(dataset_size,review_category_id)
+    review_history_data = generate_review_history_data(dataset_size,review_category_id)
     category_names = ['Electronics','Home Appliances','Books','Fashion','Automotive']
-    categorical_data = generateCategoricalData(category_names)
+    categorical_data = generate_categorical_data(category_names)
     csvWriter('categories.csv',categorical_data)
     csvWriter('review_history.csv',review_history_data)
